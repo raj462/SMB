@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       PAGE SETTINGS
+       This section controls the browser settings, SEO information,
+       page title, responsive layout and Tailwind CSS.
+       ============================================================ -->
+
+  <meta charset="UTF-8">
+
+  <!-- Makes the website responsive on mobile phones and tablets. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO description shown by search engines. -->
+  <meta name="description"
+        content="Shriram Mishtan Bhandar - Happiness in every box. Traditional Indian sweets, namkeen, snacks and restaurant food in Gwalior.">
+
+  <!-- Website title shown in the browser tab. -->
+  <title>Shriram Mishtan Bhandar | Happiness in Every Box</title>
+
+  <!-- ============================================================
+       TAILWIND CSS
+       Tailwind is loaded from CDN, so no installation is required.
+       ============================================================ -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ============================================================
+       TAILWIND BRAND COLORS
+       Change these HEX values if you want different colors.
+       ============================================================ -->
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: "#8F1027",
+              darkRed: "#5D0A18",
+              gold: "#D4A72C",
+              lightGold: "#F3D98A",
+              cream: "#FFF9EC",
+              brown: "#32180F"
+            }
+          },
+
+          fontFamily: {
+            display: ["Playfair Display", "Georgia", "serif"],
+            sans: ["Inter", "Arial", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ============================================================
+       GOOGLE FONTS
+       Gives the website a premium Indian luxury appearance.
+       ============================================================ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+  <!-- ============================================================
+       CUSTOM CSS
+       Additional styling, animations and glassmorphism effects.
+       ============================================================ -->
+
+  <style>
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #FFF9EC;
+      color: #32180F;
+    }
+
+    .font-display {
+      font-family: "Playfair Display", Georgia, serif;
+    }
+
+    /* Glassmorphism card effect. */
+    .glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255,255,255,.8);
+    }
+
+    /* Decorative Indian-style background pattern. */
+    .royal-pattern {
+      background-image:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(212,167,44,.13) 0 2px,
+          transparent 3px
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(143,16,39,.08) 0 2px,
+          transparent 3px
+        );
+
+      background-size: 28px 28px, 36px 36px;
+    }
+
+    /* Gold decorative line. */
+    .gold-line {
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #D4A72C,
+        transparent
+      );
+    }
+
+    /* Hero background lighting. */
+    .hero-glow {
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(243,217,138,.35),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 80% 70%,
+          rgba(143,16,39,.12),
+          transparent 30%
+        );
+    }
+
+    /* Scroll reveal animation. */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating animation for hero image. */
+    .floating {
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    /* Button shine animation. */
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.3),
+        transparent
+      );
+      transform: skewX(-20deg);
+      transition: left .7s ease;
+    }
+
+    .shine:hover::after {
+      left: 150%;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR SECTION
+       Purpose:
+       Provides website navigation and stays fixed at the top.
+       ============================================================ -->
+
+  <header class="fixed top-0 left-0 right-0 z-50">
+
+    <!-- Main navigation bar. -->
+    <nav class="glass shadow-lg border-b border-brand-gold/20">
+
+      <!-- Navigation content container. -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+                  h-20 flex items-center justify-between">
+
+        <!-- ========================================================
+             BUSINESS LOGO
+             Replace the image URL with your own logo if required.
+             ======================================================== -->
+
+        <a href="#home"
+           class="flex items-center gap-3">
+
+          <!-- Navbar logo:
+               This image represents Shriram Mishtan Bhandar.
+               Replace the image URL with another logo if required. -->
+
+          <img
+            src="https://dummyimage.com/120x120/ffffff/8f1027.png&text=SMB"
+            alt="Shriram Mishtan Bhandar logo"
+            class="h-14 w-14 object-contain rounded-full">
+
+          <!-- Business name beside logo. -->
+          <div class="hidden sm:block">
+
+            <!-- Business name. -->
+            <div class="font-display font-bold text-brand-red text-lg">
+              Shriram Mishtan
+            </div>
+
+            <!-- Brand heritage. -->
+            <div class="text-xs font-bold tracking-widest text-brand-brown">
+              BHANDAR • SINCE 1986
+            </div>
+
+          </div>
+
+        </a>
+
+        <!-- ========================================================
+             DESKTOP NAVIGATION MENU
+             ======================================================== -->
+
+        <div class="hidden lg:flex items-center gap-7">
+
+          <!-- Home navigation link. -->
+          <a href="#home"
+             class="font-semibold hover:text-brand-red">
+            Home
+          </a>
+
+          <!-- About navigation link. -->
+          <a href="#about"
+             class="font-semibold hover:text-brand-red">
+            About
+          </a>
+
+          <!-- Menu navigation link. -->
+          <a href="#menu"
+             class="font-semibold hover:text-brand-red">
+            Menu
+          </a>
+
+          <!-- Services navigation link. -->
+          <a href="#services"
+             class="font-semibold hover:text-brand-red">
+            Services
+          </a>
+
+          <!-- Reviews navigation link. -->
+          <a href="#reviews"
+             class="font-semibold hover:text-brand-red">
+            Reviews
+          </a>
+
+          <!-- FAQ navigation link. -->
+          <a href="#faq"
+             class="font-semibold hover:text-brand-red">
+            FAQ
+          </a>
+
+          <!-- Contact navigation link. -->
+          <a href="#contact"
+             class="font-semibold hover:text-brand-red">
+            Contact
+          </a>
+
+        </div>
+
+        <!-- ========================================================
+             WHATSAPP ORDER BUTTON
+             ======================================================== -->
+
+        <a
+          href="https://wa.me/919713275098?text=Hello%20Shriram%20Mishtan%20Bhandar%2C%20I%20want%20to%20place%20an%20order."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2
+                 rounded-full bg-brand-red px-5 py-3
+                 text-sm font-bold text-white
+                 hover:bg-brand-darkRed transition">
+
+          💬 Order on WhatsApp
+
+        </a>
+
+        <!-- Mobile menu button. -->
+        <button
+          id="mobileMenuButton"
+          class="lg:hidden rounded-xl border
+                 border-brand-red/20 bg-white px-3 py-2
+                 text-brand-red"
+          aria-label="Open menu">
+
+          ☰
+
+        </button>
+
+      </div>
+
+      <!-- ========================================================
+           MOBILE NAVIGATION MENU
+           Hidden on mobile until menu button is clicked.
+           ======================================================== -->
+
+      <div
+        id="mobileMenu"
+        class="hidden lg:hidden bg-white border-t
+               border-brand-gold/20 p-5">
+
+        <!-- Mobile Home link. -->
+        <a href="#home"
+           class="block py-2 font-semibold">
+          Home
+        </a>
+
+        <!-- Mobile About link. -->
+        <a href="#about"
+           class="block py-2 font-semibold">
+          About
+        </a>
+
+        <!-- Mobile Menu link. -->
+        <a href="#menu"
+           class="block py-2 font-semibold">
+          Menu
+        </a>
+
+        <!-- Mobile Services link. -->
+        <a href="#services"
+           class="block py-2 font-semibold">
+          Services
+        </a>
+
+        <!-- Mobile Reviews link. -->
+        <a href="#reviews"
+           class="block py-2 font-semibold">
+          Reviews
+        </a>
+
+        <!-- Mobile FAQ link. -->
+        <a href="#faq"
+           class="block py-2 font-semibold">
+          FAQ
+        </a>
+
+        <!-- Mobile Contact link. -->
+        <a href="#contact"
+           class="block py-2 font-semibold">
+          Contact
+        </a>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION
+       Purpose:
+       Creates the first impression and highlights the brand.
+       ============================================================ -->
+
+  <main>
+
+    <section
+      id="home"
+      class="min-h-screen pt-28 hero-glow royal-pattern">
+
+      <!-- Hero content container. -->
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+               min-h-[calc(100vh-7rem)]
+               grid lg:grid-cols-2 gap-10
+               items-center py-12">
+
+        <!-- Hero text content. -->
+        <div class="reveal">
+
+          <!-- Heritage badge. -->
+          <div
+            class="inline-flex items-center gap-2
+                   rounded-full border border-brand-gold/30
+                   bg-white px-4 py-2
+                   text-xs font-bold uppercase
+                   tracking-widest text-brand-red">
+
+            <span class="h-2 w-2 rounded-full bg-brand-gold"></span>
+
+            Since 1986 • Gwalior
+
+          </div>
+
+          <!-- Main hero heading. -->
+          <h1
+            class="mt-6 font-display
+                   text-5xl sm:text-6xl lg:text-7xl
+                   font-extrabold leading-tight">
+
+            Happiness
+
+            <span class="block text-brand-red">
+              in every box.
+            </span>
+
+          </h1>
+
+          <!-- Hero description. -->
+          <p
+            class="mt-6 max-w-xl
+                   text-lg leading-8
+                   text-brand-brown/70">
+
+            Traditional Indian mithai, fresh namkeen
+            and delicious hot snacks — made to bring
+            families together, one bite at a time.
+
+          </p>
+
+          <!-- Hero buttons. -->
+          <div class="mt-8 flex flex-wrap gap-3">
+
+            <!-- WhatsApp ordering button. -->
+            <a
+              href="https://wa.me/919713275098?text=Hello%20Shriram%20Mishtan%20Bhandar%2C%20I%20want%20to%20place%20an%20order."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="shine rounded-full bg-brand-red
+                     px-7 py-4 font-bold text-white
+                     shadow-xl hover:bg-brand-darkRed
+                     transition">
+
+              🛍️ Order Fresh Mithai
+
+            </a>
+
+            <!-- Menu button. -->
+            <a
+              href="#menu"
+              class="rounded-full border-2
+                     border-brand-red/20
+                     bg-white px-7 py-4
+                     font-bold text-brand-red
+                     hover:border-brand-gold
+                     transition">
+
+              Explore Menu ↓
+
+            </a>
+
+          </div>
+
+          <!-- Trust points. -->
+          <div class="mt-10 grid grid-cols-3 gap-3 max-w-lg">
+
+            <!-- Fresh daily card. -->
+            <div class="glass rounded-2xl p-4">
+              <div class="text-2xl">🥛</div>
+              <p class="mt-2 text-xs font-bold">
+                Fresh Daily
+              </p>
+            </div>
+
+            <!-- Traditional card. -->
+            <div class="glass rounded-2xl p-4">
+              <div class="text-2xl">👨‍🍳</div>
+              <p class="mt-2 text-xs font-bold">
+                Traditional
+              </p>
+            </div>
+
+            <!-- Delivery card. -->
+            <div class="glass rounded-2xl p-4">
+              <div class="text-2xl">🚚</div>
+              <p class="mt-2 text-xs font-bold">
+                Home Delivery
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Hero image area. -->
+        <div class="reveal">
+
+          <!-- Hero food image:
+               This image represents Indian sweets.
+               Replace this URL with another royalty-free image URL. -->
+
+          <img
+            src="https://images.unsplash.com/photo-1605196560542-4a1e9f0f7c5d?auto=format&fit=crop&w=1200&q=85"
+            alt="Beautiful assortment of traditional Indian sweets"
+            class="floating w-full rounded-3xl
+                   aspect-square object-cover
+                   shadow-2xl border-4 border-white">
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT US SECTION
+         Purpose:
+         Builds trust by explaining the business story.
+         ============================================================ -->
+
+    <section
+      id="about"
+      class="bg-white py-20 sm:py-24">
+
+      <!-- About section layout. -->
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8
+               grid lg:grid-cols-2 gap-12
+               items-center">
+
+        <!-- About image area. -->
+        <div class="reveal">
+
+          <!-- About image:
+               Represents traditional Indian sweets.
+               Replace this URL with another royalty-free image. -->
+
+          <img
+            src="https://images.unsplash.com/photo-1575377427642-087cf684f04d?auto=format&fit=crop&w=1000&q=85"
+            alt="Traditional Indian sweets displayed beautifully"
+            class="w-full aspect-[4/3]
+                   object-cover rounded-3xl shadow-xl">
+
+        </div>
+
+        <!-- About text. -->
+        <div class="reveal">
+
+          <!-- About section label. -->
+          <p
+            class="text-sm font-extrabold
+                   uppercase tracking-widest
+                   text-brand-red">
+
+            Our Story
+
+          </p>
+
+          <!-- About heading. -->
+          <h2
+            class="mt-3 font-display
+                   text-4xl sm:text-5xl
+                   font-bold">
+
+            A little sweetness
+            goes a long way.
+
+          </h2>
+
+          <!-- Business description. -->
+          <p
+            class="mt-6 leading-8
+                   text-brand-brown/70">
+
+            Shriram Mishtan Bhandar is a popular
+            local sweet shop and casual eatery in
+            Gwalior known for traditional Indian
+            sweets and hot street food snacks.
+
+          </p>
+
+          <!-- Additional description. -->
+          <p
+            class="mt-4 leading-8
+                   text-brand-brown/70">
+
+            From celebration boxes to everyday cravings,
+            our goal is simple: serve comforting flavours,
+            quality ingredients and the kind of taste
+            people love to return for.
+
+          </p>
+
+          <!-- Business statistics. -->
+          <div class="mt-8 grid grid-cols-3 gap-4">
+
+            <!-- Established counter. -->
+            <div class="rounded-2xl bg-brand-cream p-5 text-center">
+              <div
+                class="font-display text-3xl
+                       font-bold text-brand-red counter"
+                data-target="1986">
+
+                0
+
+              </div>
+
+              <p class="text-xs font-semibold">
+                Established
+              </p>
+
+            </div>
+
+            <!-- Freshness counter. -->
+            <div class="rounded-2xl bg-brand-cream p-5 text-center">
+              <div
+                class="font-display text-3xl
+                       font-bold text-brand-red counter"
+                data-target="100">
+
+                0
+
+              </div>
+
+              <p class="text-xs font-semibold">
+                Freshness %
+              </p>
+
+            </div>
+
+            <!-- Branch counter. -->
+            <div class="rounded-2xl bg-brand-cream p-5 text-center">
+              <div
+                class="font-display text-3xl
+                       font-bold text-brand-red counter"
+                data-target="2">
+
+                0
+
+              </div>
+
+              <p class="text-xs font-semibold">
+                Branches
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ============================================================
+         MENU SECTION
+         Purpose:
+         Displays the main categories available at the business.
+         ============================================================ -->
+
+    <section
+      id="menu"
+      class="py-20 sm:py-24 royal-pattern">
+
+      <!-- Menu container. -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Menu heading. -->
+        <div class="reveal text-center">
+
+          <!-- Menu label. -->
+          <p
+            class="text-sm font-extrabold uppercase
+                   tracking-widest text-brand-red">
+
+            Our Menu
+
+          </p>
+
+          <!-- Menu title. -->
+          <h2
+            class="mt-3 font-display
+                   text-4xl sm:text-5xl
+                   font-bold">
+
+            Made for every mood.
+
+          </h2>
+
+          <!-- Menu description. -->
+          <p
+            class="mt-4 text-brand-brown/65">
+
+            Pick your favourite category
+            and discover something delicious.
+
+          </p>
+
+        </div>
+
+
+        <!-- Menu cards grid. -->
+        <div
+          class="mt-12 grid sm:grid-cols-2
+                 lg:grid-cols-3 gap-6">
+
+
+          <!-- ======================================================
+               KAJU SWEETS CARD
+               ====================================================== -->
+
+          <article
+            class="reveal overflow-hidden
+                   rounded-3xl bg-white
+                   shadow-xl hover:-translate-y-2
+                   transition">
+
+            <!-- Kaju sweets image:
+                 Represents kaju-based Indian sweets.
+                 Replace this URL with another royalty-free image. 
